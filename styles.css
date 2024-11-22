@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.captcha-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+}
+
+.fake-progress-bar {
+    width: 80%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fake-progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4ecdc4, #ff6b6b);
+    animation: fakeProgress 3s ease-in-out infinite;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.moving-target {
+    position: absolute;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s;
+}
+
+.math-problem {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.text-verify {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.verify-text {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.floating-emoji {
+    position: absolute;
+    font-size: 2em;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes fakeProgress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    75% { width: 85%; }
+    90% { width: 90%; }
+    100% { width: 95%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+.shake {
+    animation: shake 0.5s linear infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World's Most Annoying CAPTCHA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="captcha-container">
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-text">Loading Security Check...</div>
+            <div class="fake-progress-bar"></div>
+        </div>
+
+        <div id="captcha-content" style="display: none;">
+            <div class="header">
+                <h2>Prove You're Human</h2>
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <div id="moving-target" class="moving-target">Click Me!</div>
+            
+            <div id="math-problem" class="math-problem">
+                <span id="math-text"></span>
+                <input type="number" id="math-answer" placeholder="Answer">
+            </div>
+
+            <div id="text-verify" class="text-verify">
+                <div id="verify-text" class="verify-text"></div>
+                <input type="text" id="text-answer" placeholder="Type the text above">
+            </div>
+
+            <div class="distracting-elements">
+                <div class="floating-emoji">🦄</div>
+                <div class="floating-emoji">🌈</div>
+                <div class="floating-emoji">🎈</div>
+                <div class="floating-emoji">🎨</div>
+                <div class="floating-emoji">⭐</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="loadingScreen.js"></script>
+    <script src="progressBar.js"></script>
+    <script src="movingTarget.js"></script>
+    <script src="mathProblem.js"></script>
+    <script src="textVerify.js"></script>
+    <script src="distractions.js"></script>
+</body>
+</html>
