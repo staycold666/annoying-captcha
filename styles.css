@@ -7,6 +7,15 @@ body {
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     font-family: Arial, sans-serif;
     overflow: hidden;
+    animation: backgroundShift 5s infinite;
+}
+
+@keyframes backgroundShift {
+    0% { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); }
+    25% { background: linear-gradient(135deg, #4ecdc4, #ff6b6b); }
+    50% { background: linear-gradient(225deg, #ff6b6b, #4ecdc4); }
+    75% { background: linear-gradient(315deg, #4ecdc4, #ff6b6b); }
+    100% { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); }
 }
 
 .captcha-container {
@@ -17,6 +26,15 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: containerShake 0.5s infinite;
+}
+
+@keyframes containerShake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(1deg); }
+    50% { transform: translate(-5px, -5px) rotate(-1deg); }
+    75% { transform: translate(-5px, 5px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 .loading-screen {
@@ -36,7 +54,16 @@ body {
 .loading-text {
     font-size: 1.2em;
     margin-bottom: 20px;
-    animation: pulse 1s infinite;
+    animation: textGlitch 1s infinite;
+}
+
+@keyframes textGlitch {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(-10deg); filter: blur(2px); }
+    40% { transform: skew(10deg); filter: blur(0px); }
+    60% { transform: skew(-5deg); filter: blur(1px); }
+    80% { transform: skew(5deg); filter: blur(0px); }
+    100% { transform: skew(0deg); }
 }
 
 .fake-progress-bar {
@@ -45,6 +72,13 @@ body {
     background: #eee;
     border-radius: 10px;
     overflow: hidden;
+    animation: barPulse 0.5s infinite;
+}
+
+@keyframes barPulse {
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(0.98); }
+    100% { transform: scaleX(1); }
 }
 
 .fake-progress-bar::after {
@@ -63,6 +97,13 @@ body {
     border-radius: 5px;
     margin: 10px 0;
     overflow: hidden;
+    animation: glowPulse 1s infinite;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px rgba(78, 205, 196, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(255, 107, 107, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(78, 205, 196, 0.5); }
 }
 
 .moving-target {
@@ -74,6 +115,13 @@ body {
     cursor: pointer;
     user-select: none;
     transition: transform 0.1s;
+    animation: targetPulse 0.5s infinite;
+}
+
+@keyframes targetPulse {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
 }
 
 .math-problem {
@@ -82,6 +130,14 @@ body {
     background: #f8f9fa;
     border-radius: 5px;
     text-align: center;
+    animation: mathShake 0.3s infinite;
+}
+
+@keyframes mathShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
 .text-verify {
@@ -90,6 +146,13 @@ body {
     background: #f8f9fa;
     border-radius: 5px;
     text-align: center;
+    animation: verifyPulse 2s infinite;
+}
+
+@keyframes verifyPulse {
+    0% { background: #f8f9fa; }
+    50% { background: #e9ecef; }
+    100% { background: #f8f9fa; }
 }
 
 .verify-text {
@@ -105,49 +168,77 @@ input {
     border-radius: 5px;
     margin-top: 10px;
     font-size: 1em;
+    animation: inputGlow 1s infinite;
+}
+
+@keyframes inputGlow {
+    0% { border-color: #ddd; }
+    50% { border-color: #ff6b6b; }
+    100% { border-color: #ddd; }
 }
 
 .floating-emoji {
     position: absolute;
     font-size: 2em;
     pointer-events: none;
-    animation: float 3s ease-in-out infinite;
+    animation: floatAndSpin 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-@keyframes fakeProgress {
-    0% { width: 0%; }
-    50% { width: 70%; }
-    75% { width: 85%; }
-    90% { width: 90%; }
-    100% { width: 95%; }
-}
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
-    100% { transform: translateY(0) rotate(360deg); }
+@keyframes floatAndSpin {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-20px) rotate(90deg) scale(1.2); }
+    50% { transform: translateY(0) rotate(180deg) scale(1); }
+    75% { transform: translateY(20px) rotate(270deg) scale(0.8); }
+    100% { transform: translateY(0) rotate(360deg) scale(1); }
 }
 
 .shake {
-    animation: shake 0.5s linear infinite;
+    animation: ultraShake 0.2s linear infinite;
 }
 
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+@keyframes ultraShake {
+    0% { transform: translate(1px, 1px) rotate(0deg) scale(1); }
+    10% { transform: translate(-2px, -2px) rotate(-2deg) scale(1.1); }
+    20% { transform: translate(-3px, 0px) rotate(2deg) scale(0.9); }
+    30% { transform: translate(3px, 2px) rotate(0deg) scale(1.1); }
+    40% { transform: translate(1px, -1px) rotate(2deg) scale(0.9); }
+    50% { transform: translate(-1px, 2px) rotate(-2deg) scale(1.1); }
+    60% { transform: translate(-3px, 1px) rotate(0deg) scale(0.9); }
+    70% { transform: translate(3px, 1px) rotate(-2deg) scale(1.1); }
+    80% { transform: translate(-1px, -1px) rotate(2deg) scale(0.9); }
+    90% { transform: translate(1px, 2px) rotate(0deg) scale(1.1); }
+    100% { transform: translate(1px, -2px) rotate(-2deg) scale(0.9); }
+}
+
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    filter: blur(1px);
+    animation: trailFade 1s linear forwards;
+}
+
+@keyframes trailFade {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    animation: screenFlash 5s infinite;
+}
+
+@keyframes screenFlash {
+    0% { opacity: 0; }
+    1% { opacity: 0.5; }
+    2% { opacity: 0; }
+    3% { opacity: 0.3; }
+    4% { opacity: 0; }
 }
